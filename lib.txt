@@ -1,0 +1,12 @@
+/-* pip install *libary* /-*
+
+turtle
+datetime
+discord
+datetime
+random
+asyncio
+libneko
+easy-pil
+discord.ext
+discord.utils
