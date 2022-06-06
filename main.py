@@ -165,6 +165,7 @@ async def __unban(ctx):
 #██║░░░░░╚██████╔╝██║░╚███║
 #╚═╝░░░░░░╚═════╝░╚═╝░░╚══╝
 
+@commands.guild_only()
 @client.command(name="hitler")
 async def hitler(ctx,member:discord.Member = None):
     background = Editor("hitler.png")
@@ -174,6 +175,7 @@ async def hitler(ctx,member:discord.Member = None):
     file = File(fp=background.image_bytes, filename="hitler.png")
     await ctx.send(file=file)
 
+@commands.guild_only()
 @client.command(name="bonk")
 async def _bonk(ctx, user: discord.Member, user2: discord.Member = None):
     if user == None:
@@ -190,6 +192,7 @@ async def _bonk(ctx, user: discord.Member, user2: discord.Member = None):
     file = File(fp=background.image_bytes, filename="bonker.png")
     await ctx.send(file=file)
 
+@commands.guild_only()
 @client.command(name="fiveman")
 async def _fiveman(ctx,member:discord.User = None):
     if not member:
@@ -201,6 +204,7 @@ async def _fiveman(ctx,member:discord.User = None):
     file = File(fp=background.image_bytes, filename="five.png")
     await ctx.send(file=file)
 
+@commands.guild_only()
 @client.command(name="slap")
 async def _slap(ctx, user: discord.Member, user2: discord.Member = None):
     if user == None:
@@ -217,6 +221,7 @@ async def _slap(ctx, user: discord.Member, user2: discord.Member = None):
     file = File(fp=background.image_bytes, filename="batman.png")
     await ctx.send(file=file)
 
+@commands.guild_only()
 @client.command(name="hotfood")
 async def _hotfood(ctx,member:discord.User = None):
     if not member:
@@ -312,7 +317,7 @@ async def gay_scanner(ctx, *, user: str = None):
 async def mute(ctx, member: discord.Member,time,*,reason="Nincs indok megadva"):
     a=client.get_channel(Vizsgálati Napló ID)
     reason = "".join(reason)
-    muted_role=discord.utils.get(ctx.guild.roles, id=980410642244730931)
+    muted_role=discord.utils.get(ctx.guild.roles, id=Mute Rang ID)
     time_convert = {"s":1, "m":60, "h":3600,"d":86400}
     tempmute= int(time[0]) * time_convert[time[-1]]
     await member.add_roles(muted_role)
@@ -436,7 +441,6 @@ async def ban(ctx, member: discord.User, *, reason="indok nincs megadva"):
                 return
             else:
                 a=client.get_channel("Vizsgálati napló ID")
-                banhammer = "<:ban_hammer:947456348382179368>"
                 reason = "".join(reason)
                 embed = discord.Embed(title=f"Anonymous#0000 Ki lett tiltva",color=0xccffff, timestamp=ctx.message.created_at)
                 embed.set_thumbnail(url="https://o.remove.bg/downloads/32d1934c-d5b1-499d-a943-424772808a77/image-removebg-preview.png")
@@ -595,7 +599,7 @@ async def on_message(message):
 
 invites = {}
 last = ""
-guild_id=(971846865123434547)
+guild_id=(Szerver ID)
 logs_channel=(Vizsgálati Napló ID)
 async def fetch():
     global last
@@ -629,7 +633,7 @@ async def on_member_join(member):
     embed=discord.Embed(title="Üdvözöllek a Kardosalakulaton!", description="Mielőtt hozzáférést kapnál a szerverhez, először meg kell tenned a következő lépéseket:\n- Fogadd el és olvasd is el a szabályokat!\n- Ha ez megvan, be kell majd mutatkoznod a #✍bemutatkozás✍ csatornán!\n\nHa a hitelesítés sikerült, mielőtt bármihez is hozzá kezdenél, alaposan olvasd át a szabályzatot és tartsd is be azt!\n\n⚔️ Jó szórakozást! ⚔️", color=0xecac22)
     embed.set_thumbnail(url=member.guild.icon_url)
     await member.send(embed=embed)
-    channel = client.get_channel(Vizsgálati Napló ID)
+    channel = client.get_channel(Üdvözlő csatorna ID)
     pos = sum(m.joined_at < member.joined_at for m in member.guild.members if m.joined_at is not None)
     if pos == 1:
         te = "."
